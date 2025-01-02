@@ -1,0 +1,12 @@
+.container-fluid{
+    /* background-color: rgb(226, 93, 210); */
+}
+
+.p-lorem{
+    text-align: justify;
+}
+
+.content{
+    background-color: #ddd;
+    height: 400px;
+}

@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+body {
+  font-family: "Montserrat";
+}
+
+.hero{
+    background-image: url(/Tugas_bootstrap/img/bg-hero.png);
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color:rgb(100, 92, 92);
+}
+
+.hero .btn{
+    font-size: 12px;
+}
