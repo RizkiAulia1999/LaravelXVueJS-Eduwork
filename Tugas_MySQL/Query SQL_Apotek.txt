@@ -1,0 +1,52 @@
+1. Merubah kolom id_pasien pada table transaksi menjadi foregin key
+ALTER TABLE transaksi ADD CONSTRAINT FK_TransaksiPasien FOREIGN KEY (id_pasien) REFERENCES pasien(id_pasien)
+
+2. Merubah kolom id_obat pada table transaksi menjadi foregin key
+ALTER TABLE transaksi ADD CONSTRAINT FK_TransaksiObat FOREIGN KEY (id_obat) REFERENCES pasien(id_obat)
+
+3. Menambah 10 data pada table obat
+INSERT INTO obat (nama_obat, pembuat_obat , stok_obat , tanggal_kadaluarsa) VALUES 
+('Amoxicillin','PT Sanbe Farma',25,'2026-03-10'),
+('Ibuprofen','	PT Kalbe Farmaa',30,'2025-12-05'),
+('Cetirizine','PT Dexa Medica',20, '2026-07-20'),
+('Omeprazole','PT Kimia Farma',20,'2025-09-30'),
+('Metformin','PT Sanbe Farma',18,'2025-11-25'),
+('Amlodipine','PT Kalbe Farma',24,'2026-04-18'),
+('Loratadine','PT Dexa Medica',26,'2025-10-01'),
+('Captopril','PT Kimia Farmaa',19,'2026-01-22'),
+('Simvastatin','PT Kimia Farm',22,'2026-06-15');
+
+
+4.  Menambah 10 data pada table pasien
+INSERT INTO pasien (nama_pasien,tanggal_lahir) VALUES 
+('Rizki','2026-03-10'),
+('Arfiyan','2025-12-05'),
+('Putra', '2026-07-20'),
+('Pratama','2025-09-30'),
+('Priesca','2025-11-25'),
+('Leyla','2026-04-18'),
+('Wahyu','2025-10-01'),
+('Alfian','2026-01-22'),
+('Lila','2026-06-15'),
+('Faiza','2026-06-15');
+
+5. Menampilkan table pasien
+SELECT * FROM pasien ;
+
+6. Menampilan tabel transaksi yang berisikan nama_pasien , nama_obat, jumlah_transaksi 
+SELECT pasien.nama_pasien , obat.nama_obat , transaksi.jumlah_transaksi FROM transaksi 
+inner join pasien on transaksi.id_pasien = pasien.id_pasien 
+inner join obat on transaksi.id_obat = obat.id_obat;
+
+7. Menampilkan data obat yang kadaluarsa di tahun 2025
+SELECT * FROM `obat` WHERE YEAR(tanggal_kadaluarsa) = 2025;
+
+8. Menampilkan data obat dengan pembuat obat dari Kimia Farma
+SELECT * FROM `obat` WHERE pembuat_obat = 'PT Kimia Farma';
+
+9. Menampilan data obat berdasarkan tanggal kadaluarsa tercepat
+SELECT * FROM `obat` ORDER BY tanggal_kadaluarsa ASC
+
+10. Menampilkan jumlah keseluruhan transaksi pembelian pada apotek
+SELECT SUM(jumlah_transaksi) FROM `transaksi` ;
+
